@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 
+
 const PopMenu = ({ employee, onAdd, onUpdate, onClose }) => {
-  const isEdit = !!employee; // Check if the popup is for editing (if employee exists)
+  const isEdit = !!employee; // Check if the popup is for editing
 
   const [formData, setFormData] = useState(
     employee || {
-      EMPLOYEE_ID: '', // Ensure this is dynamically filled when editing
+      EMPLOYEE_ID: '',
       NAME_ONE: '',
       NAME_TWO: '',
       EMAIL: '',
@@ -25,10 +26,8 @@ const PopMenu = ({ employee, onAdd, onUpdate, onClose }) => {
 
     try {
       if (isEdit) {
-        // If editing, call the onUpdate function
         await onUpdate(formData);
       } else {
-        // If adding, call the onAdd function
         await onAdd(formData);
       }
     } catch (error) {
@@ -38,11 +37,13 @@ const PopMenu = ({ employee, onAdd, onUpdate, onClose }) => {
   };
 
   return (
-    <div className="popup-container">
-      <div className="popup-content">
+    <div className="popup-overlay" onClick={onClose}>
+      <div
+        className="popup-content animate-slide-in"
+        onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the popup
+      >
         <h2>{isEdit ? 'Edit Employee' : 'Add New Employee'}</h2>
         <form onSubmit={handleSubmit}>
-          {/* EMPLOYEE_ID: Only show when editing */}
           {isEdit && (
             <div className="form-group">
               <label htmlFor="EMPLOYEE_ID">Employee ID</label>
@@ -52,7 +53,7 @@ const PopMenu = ({ employee, onAdd, onUpdate, onClose }) => {
                 name="EMPLOYEE_ID"
                 value={formData.EMPLOYEE_ID}
                 onChange={handleChange}
-                readOnly // Employee ID is non-editable
+                readOnly
               />
             </div>
           )}
