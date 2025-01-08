@@ -1,39 +1,3 @@
-// import React, { useContext } from 'react';
-// import {DataContext} from '../context/DataContext';
-
-// const Filters = () => {
-//   const { data, setFilteredData } = useContext(DataContext);
-
-//   // Sorting Logic
-//   const handleSort = (field, order) => {
-//     const sorted = [...data].sort((a, b) =>
-//       order === 'asc' ? a[field].localeCompare(b[field]) : b[field].localeCompare(a[field])
-//     );
-//     setFilteredData(sorted);
-//   };
-
-//   // Filtering Logic
-//   const handleFilter = (query) => {
-//     const filtered = data.filter((row) =>
-//       row.name.toLowerCase().includes(query.toLowerCase())
-//     );
-//     setFilteredData(filtered);
-//   };
-
-//   return (
-//     <div>
-//       <input
-//         type="text"
-//         placeholder="Search by name"
-//         onChange={(e) => handleFilter(e.target.value)}
-//       />
-//       <button onClick={() => handleSort('name', 'asc')}>Sort Asc</button>
-//       <button onClick={() => handleSort('name', 'desc')}>Sort Desc</button>
-//     </div>
-//   );
-// };
-
-// export default Filters;
 
 
 import React, { useContext, useState } from 'react';
