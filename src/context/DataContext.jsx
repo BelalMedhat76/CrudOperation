@@ -212,8 +212,9 @@ const DataProvider = ({ children }) => {
 
   // Add new employee function
   const addEmployee = (newEmployee) => {
-    setData((prevData) => [...prevData, newEmployee]); // Add to the main data state
-    setFilteredData((prevFilteredData) => [...prevFilteredData, newEmployee]); // Add to the filtered data state
+    setData((prevData) => [newEmployee, ...prevData]); // Add to the top of the main data state
+    setFilteredData((prevFilteredData) => [newEmployee, ...prevFilteredData]); // Add to the top of the filtered data state
+    setCurrentPage(1); // Reset the page to the first page
   };
 
   // Delete employee function
@@ -270,3 +271,4 @@ const DataProvider = ({ children }) => {
 };
 
 export { DataContext, DataProvider };
+
