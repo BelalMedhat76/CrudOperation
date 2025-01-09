@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 
 const PopMenu = ({ employee, onAdd, onUpdate, onClose }) => {
-  const isEdit = !!employee; // Check if the popup is for editing
+  const isEdit = !!employee;
 
   const [formData, setFormData] = useState(
     employee || {
@@ -40,7 +40,7 @@ const PopMenu = ({ employee, onAdd, onUpdate, onClose }) => {
     <div className="popup-overlay" onClick={onClose}>
       <div
         className="popup-content animate-slide-in"
-        onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the popup
+        onClick={(e) => e.stopPropagation()}
       >
         <h2>{isEdit ? 'Edit Employee' : 'Add New Employee'}</h2>
         <form onSubmit={handleSubmit}>
@@ -59,7 +59,7 @@ const PopMenu = ({ employee, onAdd, onUpdate, onClose }) => {
           )}
 
           <div className="form-group">
-            <label htmlFor="NAME_ONE">First Name</label>
+            <label htmlFor="NAME_ONE">Name (arabic)</label>
             <input
               type="text"
               id="NAME_ONE"
@@ -71,7 +71,7 @@ const PopMenu = ({ employee, onAdd, onUpdate, onClose }) => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="NAME_TWO">Last Name</label>
+            <label htmlFor="NAME_TWO">Name (english)</label>
             <input
               type="text"
               id="NAME_TWO"

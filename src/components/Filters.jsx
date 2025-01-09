@@ -9,7 +9,7 @@ const Filters = () => {
   const [sortField, setSortField] = useState('name');
   const [sortOrder, setSortOrder] = useState('asc');
 
-  // Sorting Logic
+
   const handleSort = (field) => {
     const newOrder = sortOrder === 'asc' ? 'desc' : 'asc';
     setSortOrder(newOrder);
@@ -23,7 +23,7 @@ const Filters = () => {
     setFilteredData(sorted);
   };
 
-  // Filtering Logic
+
   const handleFilter = (query) => {
     setSearchQuery(query);
     const filtered = data.filter((row) =>
@@ -40,17 +40,17 @@ const Filters = () => {
         placeholder="Search by name"
         onChange={(e) => handleFilter(e.target.value)}
       />
-      
+
       <button onClick={() => handleSort('name')}>
         Sort by Name {sortOrder === 'asc' ? 'Asc' : 'Desc'}
       </button>
-      
+
       {/* You can extend the sorting functionality to other fields */}
       <button onClick={() => handleSort('age')}>
         Sort by Age {sortOrder === 'asc' ? 'Asc' : 'Desc'}
       </button>
 
-      {/* Add more filter criteria if necessary */}
+
       <div className="filters-info">
         <p>Filter and Sort Options:</p>
         <ul>
