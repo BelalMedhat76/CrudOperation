@@ -20,14 +20,11 @@ const Alert = ({ message, type, onClose }) => {
 const DataGrid = () => {
   const {
     filteredData,
-    loading,
-    error,
     currentPage,
     rowsPerPage,
     setCurrentPage,
     setFilteredData,
     data,
-    addEmployee,
     deleteEmployee,
   } = useContext(DataContext);
 
